@@ -20,8 +20,7 @@ class SerialGenerator:
 
     def __init__(self, start):
         """Creates a new SerialGenerator with the given starting number"""
-        self.start = start
-        self.current_serial = self.start
+        self.start = self.current_serial = start
 
     def reset(self):
         """Resets so that the next call to generate() returns the starting number"""
@@ -30,6 +29,5 @@ class SerialGenerator:
     def generate(self):
         """Generates a serial number one higher than the last one generated,
         starting from the start number specified"""
-        next_serial = self.current_serial
         self.current_serial += 1
-        return next_serial
+        return self.current_serial - 1
